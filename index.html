@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cybersecurity-focused OJT portfolio of Arvin Duble, BSIT student and aspiring SOC analyst." />
+  <title>Arvin Duble | Cybersecurity OJT Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-0: #020617;
+      --bg-1: #0b1120;
+      --bg-2: #111827;
+      --card: #0f172a;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --line: #1f2937;
+      --accent: #38bdf8;
+      --accent-2: #22d3ee;
+      --ok: #34d399;
+      --radius: 14px;
+      --container: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 80% -10%, rgba(56, 189, 248, 0.2), transparent 40%),
+        radial-gradient(circle at 15% -10%, rgba(34, 211, 238, 0.1), transparent 35%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-0));
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 4.5rem 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .section h2 {
+      margin: 0 0 1.2rem;
+      font-size: clamp(1.35rem, 1.1rem + 1.2vw, 2rem);
+      color: var(--accent);
+      letter-spacing: 0.015em;
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--accent-2);
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      margin-bottom: 1rem;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .hero {
+      min-height: 88svh;
+      display: grid;
+      align-content: center;
+      padding: 4rem 0;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 1.2rem + 3.6vw, 4rem);
+      line-height: 1.12;
+      margin: 0;
+    }
+
+    .hero .title {
+      margin: 1rem 0 0.2rem;
+      color: var(--accent-2);
+      font-weight: 600;
+      font-size: clamp(1rem, 0.8rem + 1vw, 1.4rem);
+    }
+
+    .hero .mission {
+      margin: 1rem 0 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .typing-wrap {
+      margin-top: 1.1rem;
+      color: #a5f3fc;
+      font-family: "JetBrains Mono", monospace;
+      min-height: 1.7rem;
+      letter-spacing: 0.01em;
+    }
+
+    .typing-wrap::after {
+      content: "_";
+      margin-left: 0.25rem;
+      animation: blink 0.9s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    }
+
+    .btn-primary {
+      color: #00111a;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 8px 22px rgba(34, 211, 238, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: rgba(56, 189, 248, 0.55);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(2, 6, 23, 0.85));
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: var(--radius);
+      padding: 1.15rem;
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.04), 0 12px 28px rgba(2, 6, 23, 0.6);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.2), 0 14px 34px rgba(2, 6, 23, 0.78);
+    }
+
+    .card h3 {
+      margin: 0.1rem 0 0.7rem;
+      color: #cffafe;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .card p {
+      margin: 0.2rem 0;
+      color: var(--muted);
+    }
+
+    .chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #bae6fd;
+      background: rgba(15, 23, 42, 0.72);
+      border-radius: 999px;
+      padding: 0.3rem 0.65rem;
+    }
+
+    .list {
+      margin: 0.35rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .metrics {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .metric-row {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .metric-row span {
+      font-size: 0.88rem;
+      color: #bae6fd;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .bar {
+      height: 9px;
+      border-radius: 999px;
+      background: #1e293b;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .bar > i {
+      display: block;
+      height: 100%;
+      width: var(--value);
+      background: linear-gradient(90deg, var(--accent), var(--ok));
+    }
+
+    .terminal-card {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .terminal-head {
+      color: #7dd3fc;
+      margin-bottom: 0.7rem;
+    }
+
+    .terminal-line {
+      color: #93c5fd;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .roadmap {
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .roadmap::before {
+      content: "";
+      position: absolute;
+      left: 0.2rem;
+      top: 0.25rem;
+      bottom: 0.25rem;
+      width: 2px;
+      background: linear-gradient(var(--accent), rgba(52, 211, 153, 0.3));
+    }
+
+    .roadmap-item {
+      position: relative;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+
+    .roadmap-item::before {
+      content: "";
+      position: absolute;
+      left: -0.1rem;
+      top: 0.42rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+
+    .roadmap-item strong {
+      color: #a5f3fc;
+    }
+
+    .cta-panel {
+      background: linear-gradient(145deg, rgba(14, 165, 233, 0.17), rgba(2, 6, 23, 0.96));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.18);
+      text-align: center;
+      color: #64748b;
+      padding: 1.4rem 1rem 2rem;
+      font-size: 0.92rem;
+      background: rgba(2, 6, 23, 0.9);
+    }
+
+    a {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #a5f3fc;
+    }
+
+    @media (max-width: 980px) {
+      .grid.two,
+      .grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 3.9rem 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 82svh;
+        padding-top: 3.2rem;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container reveal">
+        <p class="kicker">Security Portfolio / OJT Ready</p>
+        <h1>Arvin Duble</h1>
+        <p class="title">BSIT Student | Aspiring Cybersecurity Analyst | SOC Enthusiast</p>
+        <p class="mission">
+          Passionate about cybersecurity, networking, and system defense. Seeking hands-on OJT experience to grow as a SOC analyst and contribute to secure operations.
+        </p>
+        <p class="typing-wrap" id="typingText" aria-live="polite"></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#" aria-label="Download resume placeholder">Download Resume (Placeholder)</a>
+          <a class="btn btn-secondary" href="#" aria-label="Open GitHub profile placeholder">GitHub (Placeholder)</a>
+          <a class="btn btn-secondary" href="#" aria-label="Open LinkedIn profile placeholder">LinkedIn (Placeholder)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <h2>About Me</h2>
+        <div class="grid two">
+          <article class="card">
+            <h3>Career Direction</h3>
+            <p>
+              I am a 4th-year BSIT student at the University of Mindanao with a focused path in cybersecurity. My target role is to grow from internship training into SOC analyst responsibilities.
+            </p>
+            <div class="chip-wrap">
+              <span class="chip">Blue Team Operations</span>
+              <span class="chip">Security Monitoring</span>
+              <span class="chip">Threat Detection</span>
+              <span class="chip">Incident Response</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Professional Mindset</h3>
+            <ul class="list">
+              <li>Analytical thinker with a practical, evidence-based approach.</li>
+              <li>Detail-oriented in documentation and troubleshooting workflows.</li>
+              <li>Self-learner who continuously practices in lab environments.</li>
+              <li>Team player who values clear communication and reliability.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <h2>Technical Skills</h2>
+        <div class="grid two">
+          <article class="card">
+            <h3>Operating Systems and Networking</h3>
+            <div class="chip-wrap">
+              <span class="chip">Windows Administration</span>
+              <span class="chip">Linux: Ubuntu, Kali, Arch WSL</span>
+              <span class="chip">TCP/IP Fundamentals</span>
+              <span class="chip">DNS, HTTP/HTTPS</span>
+              <span class="chip">LAN and Basic Routing</span>
+              <span class="chip">Network Troubleshooting</span>
+            </div>
+            <div class="metrics">
+              <div class="metric-row">
+                <span><b>Linux and Windows Ops</b><b>80%</b></span>
+                <div class="bar"><i style="--value:80%;"></i></div>
+              </div>
+              <div class="metric-row">
+                <span><b>Network Fundamentals</b><b>78%</b></span>
+                <div class="bar"><i style="--value:78%;"></i></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Security Tools, Virtualization, and Scripting</h3>
+            <div class="chip-wrap">
+              <span class="chip">Nmap</span>
+              <span class="chip">Wireshark</span>
+              <span class="chip">TryHackMe Labs</span>
+              <span class="chip">Burp Suite (Basic)</span>
+              <span class="chip">Metasploit (Basic)</span>
+              <span class="chip">VMware Workstation</span>
+              <span class="chip">VirtualBox</span>
+              <span class="chip">Kali and Windows 10 VM Lab</span>
+              <span class="chip">C Programming</span>
+              <span class="chip">Bash Scripting (Basic)</span>
+              <span class="chip">Python (Basic)</span>
+            </div>
+            <div class="metrics">
+              <div class="metric-row">
+                <span><b>Hands-on Security Tooling</b><b>74%</b></span>
+                <div class="bar"><i style="--value:74%;"></i></div>
+              </div>
+              <div class="metric-row">
+                <span><b>Virtualization Lab Setup</b><b>82%</b></span>
+                <div class="bar"><i style="--value:82%;"></i></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <h2>Cybersecurity Labs and Projects</h2>
+        <div class="grid two">
+          <article class="card terminal-card">
+            <div class="terminal-head">$ tryhackme --learning-path in-progress</div>
+            <div class="terminal-line">[+] Network scanning and service enumeration</div>
+            <div class="terminal-line">[+] Linux privilege escalation practice</div>
+            <div class="terminal-line">[+] Password cracking exercises</div>
+            <div class="terminal-line">[+] Web exploitation fundamentals</div>
+            <div class="terminal-line">[+] SOC-oriented investigation simulations</div>
+          </article>
+
+          <article class="card">
+            <h3>Network Security Labs</h3>
+            <ul class="list">
+              <li>Nmap scanning and result analysis across test hosts.</li>
+              <li>Port scanning and common service fingerprinting.</li>
+              <li>Service enumeration for attack surface understanding.</li>
+              <li>Basic vulnerability identification and lab reporting.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>System Security Labs</h3>
+            <ul class="list">
+              <li>Linux hardening baseline checks and account controls.</li>
+              <li>Windows security configuration and local policy checks.</li>
+              <li>Password hashing and encryption experiments in test setup.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Capstone Project</h3>
+            <p><strong>Personalized Food Assistant: A Location-Based Prescriptive Chatbot for Food Recommendations</strong></p>
+            <ul class="list">
+              <li>Backend-focused implementation and feature integration.</li>
+              <li>Data handling workflows and basic security considerations.</li>
+              <li>Web architecture awareness aligned with secure design thinking.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <h2>Certifications and Training</h2>
+        <div class="grid three">
+          <article class="card">
+            <h3>Current Training</h3>
+            <p>TryHackMe learning path and practical lab progression (in progress).</p>
+          </article>
+          <article class="card">
+            <h3>Target Certifications</h3>
+            <ul class="list">
+              <li>CompTIA Security+</li>
+              <li>Cisco CyberOps Associate</li>
+              <li>Certified SOC Analyst (CSA)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Learning Focus</h3>
+            <p>Continuous improvement in SOC workflows, alert triage, and incident investigation fundamentals.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <h2>Career Roadmap</h2>
+        <div class="card roadmap">
+          <div class="roadmap-item">
+            <strong>2026:</strong> Graduate BSIT, complete SOC-focused internship, and secure an entry-level SOC analyst role.
+          </div>
+          <div class="roadmap-item">
+            <strong>2027:</strong> Strengthen SOC operations experience and transition toward blue team specialization.
+          </div>
+          <div class="roadmap-item">
+            <strong>2028+:</strong> Advance toward cybersecurity engineer or threat analyst responsibilities.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <h2>Resume</h2>
+        <div class="cta-panel">
+          <p>
+            Download a cybersecurity-focused resume summarizing technical labs, projects, and OJT readiness.
+          </p>
+          <a class="btn btn-primary" href="#" aria-label="Resume PDF placeholder download">Download Resume PDF (Placeholder)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <h2>Contact</h2>
+        <div class="grid two">
+          <article class="card">
+            <h3>Professional Contact</h3>
+            <p><strong>Email:</strong> your-email@example.com (replace)</p>
+            <p><strong>GitHub:</strong> <a href="#">github.com/yourusername</a> (replace)</p>
+            <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/yourprofile</a> (replace)</p>
+            <p><strong>Location:</strong> Davao City, Philippines</p>
+          </article>
+          <article class="card">
+            <h3>Open To</h3>
+            <p class="muted">
+              Cybersecurity OJT opportunities, SOC internship roles, and hands-on security operations training under experienced teams.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>2026 Arvin Duble | Cybersecurity OJT Portfolio</p>
+  </footer>
+
+  <script>
+    (function () {
+      var words = ["Monitoring", "Defending", "Analyzing", "Securing"];
+      var wordIndex = 0;
+      var charIndex = 0;
+      var deleting = false;
+      var target = document.getElementById("typingText");
+
+      function stepTyping() {
+        if (!target) return;
+        var current = words[wordIndex];
+        if (!deleting) {
+          target.textContent = current.slice(0, charIndex + 1);
+          charIndex += 1;
+          if (charIndex === current.length) {
+            deleting = true;
+            setTimeout(stepTyping, 1200);
+            return;
+          }
+        } else {
+          target.textContent = current.slice(0, charIndex - 1);
+          charIndex -= 1;
+          if (charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+          }
+        }
+        setTimeout(stepTyping, deleting ? 55 : 95);
+      }
+
+      stepTyping();
+
+      var revealItems = document.querySelectorAll(".reveal");
+      var observer = new IntersectionObserver(
+        function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      revealItems.forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
